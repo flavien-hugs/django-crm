@@ -1,0 +1,31 @@
+{% load static %}{% get_static_prefix as STATIC_PREFIX %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand text-uppercase font-weight-bold" href="{% url "home" %}">
+        <img src="{{ STATIC_PREFIX }}img/logo.png" width="30" height="30" class="d-inline-block align-top text-white" alt="">
+        crm
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <div class="navbar-nav text-uppercase font-weight-bold mr-auto">
+
+          <a class="nav-item nav-link" href="{% url "home" %}">dashboard</a>
+
+          <a class="nav-item nav-link" href="{% url "accounts:product" %}" tabindex="-1" aria-disabled="true">produit</a>
+
+          <a class="nav-item nav-link" href="{% url "accounts:customer" %}" tabindex="-1" aria-disabled="true">customer</a>
+        </div>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2 text-capitalize" type="search" placeholder="rechercher" aria-label="rechercher">
+          <button class="btn btn-outline-success my-2 my-sm-0 text-capitalize" type="submit">rechercher</button>
+        </form>
+      </div>
+  </div>
+</nav>

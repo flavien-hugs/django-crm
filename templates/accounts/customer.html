@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <div class="row py-4">
+      <div class="col-md">
+         <div class="card card-body">
+            <h5 class="text-capitalize">customer</h5>
+            <hr>
+            
+            <a href="#" class="btn btn-outline-info btn-sm btn-block text-capitalize">update</a>
+
+            <a href="#" class="btn btn-outline-danger btn-sm btn-block text-capitalize">delete</a>
+         </div>
+      </div>
+
+      <div class="col-md">
+         <div class="card card-body">
+            <h5 class="text-capitalize">contact information</h5>
+            <hr>
+            
+            <p class="text-capitalize">email:</p>
+            <p class="text-capitalize">phone:</p>
+         </div>
+      </div>
+
+      <div class="col-md">
+         <div class="card card-body">
+            <h5 class="text-capitalize">total orders</h5>
+            <hr>
+            
+            <h1 class="text-center p-3"></h1>
+         </div>
+      </div>
+   </div>
+   
+   <div class="row py-4">
+      <div class="col">
+         <div class="card card-body">
+            <form action="get">
+               <button class="btn btn-primary text-capitalize" type="submit">rechercher</button>
+            </form>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="row py-4">
+      <div class="col-md">
+         <div class="card card-body">
+            <table class="table table-sm">
+               <tr>
+                  <th class="text-capitalize">produit</th>
+                  <th class="text-capitalize">categories</th>
+                  <th class="text-capitalize">date ordered</th>
+                  <th class="text-capitalize">status</th>
+                  <th class="text-capitalize">update</th>
+                  <th class="text-capitalize">remove</th>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </div>        
+{% endblock content %}

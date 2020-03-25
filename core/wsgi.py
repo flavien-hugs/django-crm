@@ -1,11 +1,9 @@
-"""
-WSGI config for core project.
+# -*- coding: utf-8 -*-
+# core/wsgi.py
 
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
-"""
+__author__ = 'Flavien-hugs <flavienhgs@pm.me>'
+__version__= '0.0.1'
+__copyright__ = '© 2019 unsta'
 
 import os
 

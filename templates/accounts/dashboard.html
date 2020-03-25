@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% include "partials/status.html" %}
+
+
+    <div class="row py-4">
+        <div class="col-md-5">
+            <h5 class="text-uppercase">customers:</h5>
+            <hr>
+
+            <div class="card card-body">
+                <a href="" class="btn btn-primary btn-sm btn-block text-uppercase">create customer</a>
+
+                <table class="table table-sm">
+                    <tr>
+                        <th></th>
+                        <th class="text-uppercase">customer</th>
+                        <th class="text-uppercase">orders</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="col-md-7">
+            <h5 class="text-uppercase">last 5 orders</h5>
+            <hr>
+
+            <div class="card card-body">
+                <a href="" class="btn btn-primary btn-sm btn-block text-uppercase">create order</a>
+
+                <table class="table table-sm">
+                    <tr>
+                        <th class="text-capitalize">product</th>
+                        <th class="text-capitalize">date order</th>
+                        <th class="text-capitalize">status</th>
+                        <th class="text-capitalize">update</th>
+                        <th class="text-capitalize">remove</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
