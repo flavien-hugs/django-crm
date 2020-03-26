@@ -7,7 +7,7 @@
 
     <div class="row py-4">
         <div class="col-md-5">
-            <h5 class="text-uppercase">customers:</h5>
+            <h5 class="text-uppercase">customers:  {{ total_customers }}</h5>
             <hr>
 
             <div class="card card-body">
@@ -15,10 +15,19 @@
 
                 <table class="table table-sm">
                     <tr>
-                        <th></th>
+                        
                         <th class="text-uppercase">customer</th>
-                        <th class="text-uppercase">orders</th>
+                        <th class="text-uppercase">phone</th>
+                        <th></th>
                     </tr>
+
+                    {% for c in customers %}
+                        <tr>
+                            <td> {{ c.name }} </td>
+                            <td> {{ c.phone }} </td>
+                            <td><a class="text-uppercase btn btn-sm btn-link" href="{{ c.get_absolute_url }}">detail</a></td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
@@ -29,7 +38,7 @@
             <hr>
 
             <div class="card card-body">
-                <a href="" class="btn btn-primary btn-sm btn-block text-uppercase">create order</a>
+                <a href="{% url "accounts:create-order" %}" class="btn btn-primary btn-sm btn-block text-uppercase">create order</a>
 
                 <table class="table table-sm">
                     <tr>
@@ -39,6 +48,16 @@
                         <th class="text-capitalize">update</th>
                         <th class="text-capitalize">remove</th>
                     </tr>
+
+                    {% for n in orders %}
+                        <tr>
+                            <td> {{ n.product.name }} </td>
+                            <td> {{ n.date_created|date }} </td>
+                            <td> {{ n.status }} </td>
+                            <td class="font-weight-bold text-success"> <a href="{{ n.get_absolute_url }}" class="btn btn-sm btn-info text-capitalize">update</a> </td>
+                            <td class="font-weight-bold"> <a href="{% url "accounts:delete-order" n.id %}" class="btn btn-sm btn-danger text-capitalize">remove</a> </td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>

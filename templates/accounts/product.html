@@ -13,6 +13,14 @@
                      <th class="capitalize">categories</th>
                      <th class="capitalize">prix</th>
                   </tr>
+
+                  {% for p in products %}
+                     <tr>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.category }}</td>
+                        <td>{{ p.price }}</td>
+                     </tr>
+                  {% endfor %}
                </table>
             </div>
         </div>

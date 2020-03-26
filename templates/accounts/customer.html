@@ -18,8 +18,8 @@
             <h5 class="text-capitalize">contact information</h5>
             <hr>
             
-            <p class="text-capitalize">email:</p>
-            <p class="text-capitalize">phone:</p>
+            <p>email: {{ customer.email }}</p>
+            <p>phone: {{ customer.phone }} </p>
          </div>
       </div>
 
@@ -28,7 +28,7 @@
             <h5 class="text-capitalize">total orders</h5>
             <hr>
             
-            <h1 class="text-center p-3"></h1>
+            <h1 class="text-center p-3"> {{ order_count }} </h1>
          </div>
       </div>
    </div>
@@ -49,13 +49,26 @@
          <div class="card card-body">
             <table class="table table-sm">
                <tr>
-                  <th class="text-capitalize">produit</th>
-                  <th class="text-capitalize">categories</th>
+                  <th class="text-capitalize">product</th>
+                  <th class="text-capitalize">category</th>
                   <th class="text-capitalize">date ordered</th>
                   <th class="text-capitalize">status</th>
                   <th class="text-capitalize">update</th>
                   <th class="text-capitalize">remove</th>
                </tr>
+
+               {% for n in orders %}
+                  <tr>
+                     <td> {{ n.product }} </td>
+                     <td> {{ n.product.category }} </td>
+                     <td> {{ n.date_created }} </td>
+                     <td> {{ n.status }} </td>
+                     <td class="font-weight-bold">
+                        <a href="#" class="btn btn-sm btn-info">update</a> </td>
+                     <td class="font-weight-bold">
+                        <a href="#" class="btn btn-sm btn-danger">remove</a> </td>
+                  </tr>
+               {% endfor %}
             </table>
          </div>
       </div>

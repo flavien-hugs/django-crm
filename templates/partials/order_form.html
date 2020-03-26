@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="row py-4 d-flex justify-content-center">
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                <div class="form-row">
+                    {% for field in form %}
+                        <div class="col mb-3">
+                            <label for="{{ field.id_for_label }}"> {{ field.label }}</label>
+
+                            <select name="{{ field.name }}" id="{{ field.id_for_label }}" class="custom-select shadow-none" required>
+                                {% for c in field %}
+                                    {{ c }}
+                                {% endfor %}
+                            </select>
+
+                            <div class="invalid-tooltip">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <input type="submit" value="Update" class="btn btn-block btn-success">
+            </form>
+        </div>
+    </div>
+{% endblock content %}

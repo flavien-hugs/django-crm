@@ -3,7 +3,13 @@
     <head>
         {% include "includes/meta.html" %}
 
-        <title>CRM</title>
+        <title>
+            {% if title %}
+                {{ title|upper }} &smid;
+            {% else %}
+                CRM
+            {% endif %}
+        </title>
     </head>
 
 

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="row py-4">
+        <div class="col">
+            <p class="text-center">Are you sure you want to delete <b> "{{ item }}" </b></p>
+
+            <form action="{% url "accounts:delete-order" item.id %}" method="POST">
+                {% csrf_token %}
+
+                <div class="d-flex justify-content-center">
+                
+                    <a class="text-center btn btn-md btn-link pr-2 px-4" href="{% url "home" %}">Cancel</a>
+
+                    <input type="submit" value="Delete" class="btn btn-md btn-danger px-4">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
