@@ -2,12 +2,12 @@
 # accounts/models.py
 
 __author__ = 'Flavien-hugs <flavienhgs@pm.me>'
-__version__= '0.0.1'
+__version__ = '0.0.1'
 __copyright__ = '© 2019 unsta'
-
 
 from django.db import models
 from django.urls import reverse
+
 
 # MODELS DATABASES : CUSTOMER
 class Customer(models.Model):
@@ -25,10 +25,11 @@ class Customer(models.Model):
     def get_absolute_url(self):
         return reverse('accounts:customer', args=[self.id])
 
+
 # MODELS DATABASES : TAG
 class Tag(models.Model):
     name = models.CharField('Categorie', max_length=200, null=True)
- 
+
     def __str__(self):
         return self.name
 
@@ -54,7 +55,7 @@ class Product(models.Model):
         return self.name
 
     class Meta:
-        verbose_name='Produit'
+        verbose_name = 'Produit'
 
 
 # MODELS DATABASES : ORDER
@@ -64,14 +65,14 @@ class Order(models.Model):
         ('Out for delivery', 'Out for delivery'),
         ('Delivery', 'Delivery'),
     )
-    
+
     customer = models.ForeignKey(Customer, verbose_name='customer', null=True, on_delete=models.SET_NULL)
     product = models.ForeignKey(Product, verbose_name='produit', null=True, on_delete=models.SET_NULL)
     date_created = models.DateTimeField("Date d'ajout", auto_now_add=True, null=True)
     status = models.CharField('Status', choices=STATUS, max_length=200, null=True)
 
     class Meta:
-        verbose_name='Order'
+        verbose_name = 'Order'
 
     def __str__(self):
         return self.product.name

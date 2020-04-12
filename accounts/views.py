@@ -2,12 +2,10 @@
 # accounts/views.py
 
 __author__ = 'Flavien-hugs <flavienhgs@pm.me>'
-__version__= '0.0.1'
+__version__ = '0.0.1'
 __copyright__ = '© 2019 unsta'
 
-
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 
 from accounts.forms import OrderForm
 from accounts.models import Customer, Product, Order
@@ -50,14 +48,14 @@ def product(request):
 
 # HOME CUSTOMER
 def customer(request, pk):
-    page_title = 'customer'
-    customer = Customer.objects.get(id=pk)
-    orders = customer.order_set.all()
+    page_title = 'customers'
+    customers = Customer.objects.get(id=pk)
+    orders = customers.order_set.all()
     order_count = orders.count()
 
     context = {
         'title': page_title,
-        'customer': customer,
+        'customers': customers,
         'orders': orders,
         'order_count': order_count
     }
@@ -66,9 +64,10 @@ def customer(request, pk):
 
 
 # HOME CREATE ORDER
-def createOrder(request):
+def createOrder(request, pk):
     page_title = 'create order'
-    form = OrderForm()
+    customers = Customer.objects.get(id=pk)
+    form = OrderForm(instance={"customer":customers})
 
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -78,6 +77,7 @@ def createOrder(request):
 
     context = {
         'title': page_title,
+        'customers': customers,
         'form': form
     }
 
@@ -101,7 +101,7 @@ def updateOrder(request, pk):
         'title': page_title,
         'form': form
     }
-    
+
     template = 'partials/order_form.html'
     return render(request, template, context)
 
@@ -119,6 +119,6 @@ def deleteOrder(request, pk):
         'title': page_title,
         'item': order
     }
-    
+
     template = 'partials/delete.html'
     return render(request, template, context)
